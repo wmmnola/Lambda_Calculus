@@ -1,0 +1,6 @@
+[package]
+name = "Lambda_Calculus"
+version = "0.1.0"
+authors = ["wmmnola <wmmnola@gmail.com>"]
+
+[dependencies]
