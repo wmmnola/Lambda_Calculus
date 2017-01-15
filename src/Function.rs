@@ -1,8 +1,7 @@
 
 pub struct Function{
-    pub variable: String,
-    pub operation: String,
-    pub nestlevel: i32,
+    pub bound: FunctionBound, //Gives the function location within the string
+    pub nested_functions: Vec<Function>, //Feedback Loop?
 }
 pub trait PrintFunction{
     fn print_function(&self);
@@ -10,10 +9,16 @@ pub trait PrintFunction{
 
 impl PrintFunction for Function{
     fn print_function(&self){
-        println!("λ{}.{}", self.variable, self.operation);
+        //println!("λ{}.{}", self.variable, self.operation);
     }
 }
 
 pub struct Variable{
     pub variable: String,
+}
+
+pub struct FunctionBound{
+    pub start: usize,
+    pub stop: usize,
+    pub nest_level: i32,
 }
